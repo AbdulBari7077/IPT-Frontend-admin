@@ -1,0 +1,16 @@
+/* .uploadedFile{
+    position: re;
+    height: 200px;
+    width: 400px;
+}
+*/
+.fileUploaderField{
+    border: 1px solid rgb(122, 122, 122);
+    height:max-content ;
+    border-radius: 5px;
+    padding: 10px;
+} 
+
+.chooseFileInput{
+    color: red;
+}
