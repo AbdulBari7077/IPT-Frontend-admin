@@ -6,3 +6,10 @@
     text-decoration: none;
     color: inherit;
 }
+.css-i4bv87-MuiSvgIcon-root{
+    height: 35px !important;
+    width: 30px !important;
+}
+a:hover {
+    color: #000000 !important;
+}

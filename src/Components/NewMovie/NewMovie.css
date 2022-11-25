@@ -13,6 +13,7 @@
 }
 
 .new__user__item {
+
     width: 400px;
     display: flex;
     flex-direction: column;
@@ -28,16 +29,17 @@
 }
 
 .new__user__item > input {
-    height: 20px;
+    height: 50px;
     padding:10px;
     border: 1px solid gray;
     border-radius: 5px;
 }
-
 .new__user__gender > input{
     margin-top: 15px;
 }
-
+.yearSelector >input{
+    height: 50px;
+}
 .new__user__gender > label {
     margin: 10px;
     font-size: 18px;

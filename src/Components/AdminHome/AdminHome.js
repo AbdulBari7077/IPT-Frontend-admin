@@ -2,6 +2,8 @@ import React from 'react';
 import './AdminHome.css'
 import FeaturedInfo from '../FeaturedInfo/FeaturedInfo'
 import Chart from '../Chart/Chart'
+import Header from '../Header/Header';
+import Sidebar from '../Sidebar/Sidebar';
 
 const Home =()=> {
         const data = [
@@ -56,11 +58,10 @@ const Home =()=> {
           ];
 
         return (
-            
-            <div className = "home">
-                <FeaturedInfo />
-                <Chart data={data} title = "User Analytics" dataKey="Active User"/>
-            </div>
+          <div className = "home">
+              <FeaturedInfo />
+              <Chart data={data} title = "User Analytics" dataKey="Active User"/>
+          </div>
         )
 }
 

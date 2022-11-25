@@ -4,6 +4,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 const UserList =()=> {
+  
         const columns = [
             { field: 'id', headerName: 'ID', width: 90 },
             { field: 'User', headerName: 'Name', renderCell:(cellValues)=>{

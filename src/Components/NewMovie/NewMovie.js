@@ -55,7 +55,7 @@ const NewMovie = ({ parent }) => {
             <form className="new__user__form" onSubmit={handleSubmit} encType="multipart/form-data">
                 <div className="new__user__item">
                     <label htmlFor="">MovieTitle</label >
-                    <input type="text" placeholder="John" name="MovieTitle" required />
+                    <input  type="text" placeholder="John" name="MovieTitle" required />
                 </div>
                 <div className="new__user__item">
                     <label htmlFor="">Thumbnail</label>
@@ -72,6 +72,14 @@ const NewMovie = ({ parent }) => {
                 <div className="new__user__item">
                     <label htmlFor="">Genre</label>
                     <Select
+                    styles={{
+                        control: (baseStyles, state) => ({
+                          ...baseStyles,
+                          height: "50px",
+                          borderColor:"gray",
+
+                        }),
+                      }}
                         name='Genre'
                         closeMenuOnSelect={true}
                         components={animatedComponents}
@@ -87,12 +95,20 @@ const NewMovie = ({ parent }) => {
 
                 <div className="new__user__item">
                     <label htmlFor="">Discription</label>
-                    <textarea  className="textareaform" rows="2" cols="50" type="" placeholder="Enter Discription here..." name='Discription' required />
+                    <textarea  className="textareaform" style={{height:"56%"}} type="" placeholder="Enter Discription here..." name='Discription' required />
                 </div>
                 {/* dropdown */}
                 <div className="new__user__item">
                     <label htmlFor="">Age Rating </label>
                     <Select
+                     styles={{
+                        control: (baseStyles, state) => ({
+                          ...baseStyles,
+                          height: "50px",
+                          borderColor:"gray",
+
+                        }),
+                      }}
                         name='AgeRating'
                         closeMenuOnSelect={true}
                         components={animatedComponents}
