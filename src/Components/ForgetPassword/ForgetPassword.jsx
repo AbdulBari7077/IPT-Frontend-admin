@@ -30,6 +30,7 @@ const ForgetPassword = () => {
                         <button className="signin-button" type="submit" > {formSubmitted? `Re-Send Verification Code`:'Send Verification Code'}  </button>
                     </div>
                 </form>
+                
                 <div className='login-footer'>
                     <p>Back to Netflix ? <Link to="/admin/login">Sign In </Link>Now.</p>
                 </div>
