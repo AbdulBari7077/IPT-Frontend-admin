@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import NewMovie from "../NewMovie/NewMovie";
 import './EditMovie.css'
 
 const EditMovie = ({ id }) => {
+    const navigate = useNavigate();
+    useEffect(() => {
+      if (!JSON.parse(localStorage.getItem('userData'))) {
+        navigate('/admin/login');
+      }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     return (
         <div className="new__movie" >
             <h2 className="edit_movie">Edit Movie</h2>

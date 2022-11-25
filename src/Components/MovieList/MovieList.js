@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './MovieList.css';
 import { DataGrid } from '@mui/x-data-grid';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import EditIcon from '@mui/icons-material/Edit';
 
 const MovieList = () => {
+    const navigate = useNavigate();
+    useEffect(() => {
+      if (!JSON.parse(localStorage.getItem('userData'))) {
+        navigate('/admin/login');
+      }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     const columns = [
         { field: 'id', headerName: 'ID', width: 90 },
         {

@@ -1,25 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './login.css';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { LoginApi } from '../../api/api';
 
 const Login = () => {
+    const navigate =useNavigate();
+    useEffect(() => {
+        if(!JSON.parse(localStorage.getItem('userData'))){
+            navigate('/admin/login');
+        }
+        navigate('/admin');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     const HandleLogin =async (event)=>{
         event.preventDefault();
         const {userEmail , password} = document.forms[0];
         console.log(userEmail.value,password.value);
-        // const response = await LoginApi(userEmail.value,password.value);
-        // if(response)
-        // {
-        //     console.log("Login successful");
-        //     const userData={ 
-        //         "uid": response.data.uid,
-        //         "token":response.data.token
-        //     }
-        //     localStorage.setItem('userData', JSON.stringify(userData));
-        //     // console.log("USERDATA: " ,localStorage.getItem('userData'))
-        //     return navigate('/home');
-        // }
-        // return console.log("Login Failed");
+        const response = await LoginApi(userEmail.value,password.value);
+        if(response.data?.uid)
+        {
+            console.log("Login successful",response);
+            const userData={ 
+                "uid": response.data.uid,
+                "token":response.data.token
+            }
+            localStorage.setItem('userData', JSON.stringify(userData));
+            // console.log("USERDATA: " ,localStorage.getItem('userData'))
+            return navigate('/admin');
+        }
+        return console.log("Login Failed");
     }
     return (
         <div className='main-div'>

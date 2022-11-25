@@ -8,9 +8,15 @@ import makeAnimated from 'react-select/animated';
 import {AgeRatingOptions, GenreOptions} from '../../utils/dropdown'
 import Datetime from 'react-datetime';
 import "react-datetime/css/react-datetime.css";
+import { useNavigate } from "react-router-dom";
 
 const NewMovie = ({ parent }) => {
-  
+    const navigate = useNavigate();
+    useEffect(() => {
+      if (!JSON.parse(localStorage.getItem('userData'))) {
+        navigate('/admin/login');
+      }
+    }, []);
     const animatedComponents = makeAnimated();
     const update = 'Update Movie';
     const create = 'Upload Movie '

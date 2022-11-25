@@ -13,7 +13,7 @@ export const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navigate replace to="/admin" />} />
+        <Route path="/" element={<Navigate replace to="/admin/login" />} />
         <Route path='/admin' element={ <Wrapper element={<AdminHome/>} />}/>
         <Route path='/admin/users' element={<Wrapper element={<UserList />} />}/>
         <Route path='/admin/movies' element={<Wrapper element={<MovieList />} />}/>
