@@ -9,7 +9,11 @@ const Login = () => {
         if(!JSON.parse(localStorage.getItem('userData'))){
             navigate('/admin/login');
         }
-        navigate('/admin');
+        else
+        {
+            navigate('/admin');
+        }
+       
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     const HandleLogin =async (event)=>{
@@ -44,7 +48,7 @@ const Login = () => {
                     <button className="signin-button" type="submit" >Sign In</button>
                 </form>
                 <div className='login-footer'>
-                    <p>Forget Password ? <Link to="/register">Reset Password </Link>Now.</p>
+                    <p>Forget Password ? <Link to="/admin/resetPassword">Reset Password </Link>Now.</p>
                 </div>
             </div>
         </div>

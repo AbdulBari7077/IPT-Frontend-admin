@@ -8,6 +8,7 @@ import NewMovie from './Components/NewMovie/NewMovie';
 import EditMovie from './Components/EditMovie/EditMovie';
 import Login from './Components/Login/Login';
 import { Wrapper } from './Wrapper';
+import ForgetPassword from './Components/ForgetPassword/ForgetPassword';
 
 export const App = () => {
   return (
@@ -20,6 +21,7 @@ export const App = () => {
         <Route path='/admin/newMovie' element={<Wrapper element={<NewMovie />} />}/>
         <Route path='/admin/editMovie/:movieId' element={<Wrapper element={<EditMovie />} />}/>
         <Route path='/admin/login' element={<Login/>} />
+        <Route path='/admin/resetPassword' element={<ForgetPassword/>} />
       </Routes>
     </BrowserRouter>
   );
