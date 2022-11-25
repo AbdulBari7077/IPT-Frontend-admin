@@ -1,4 +1,3 @@
-import { SpaceBar } from "@mui/icons-material";
 import React from "react";
 import NewMovie from "../NewMovie/NewMovie";
 import './EditMovie.css'
