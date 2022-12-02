@@ -24,7 +24,11 @@
     margin-left: 20px;
     border-radius: 5px;
 }
-
+.btn{
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
 .movie__edit__link {
     display: flex;
     align-items: center;

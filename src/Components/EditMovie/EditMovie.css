@@ -15,6 +15,7 @@
 .movie-details-heading{
     border: 2px solid red;
     border-radius: 10px;
+    font-size: 25px;
 }
 .edit_movie{
     text-align: center;

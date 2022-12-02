@@ -1,7 +1,7 @@
 import { useState } from "react";
 import './FileUploader.css';
 
-const FileUploader = ({type,name, AddDataField}) => {
+const FileUploader = ({type,name, AddDataField, setData,data}) => {
     const [selectedFile, setSelectedFile] = useState();
     const [fileUrl, setFileUrl] = useState();
     function onFileChange(event) {
@@ -18,14 +18,17 @@ const FileUploader = ({type,name, AddDataField}) => {
             setSelectedFile();
             return;
         }
+        // setTrailor(event.target.files[0])
+        setData([...data,{ [name]:event.target.files[0] }])
+        // AddDataField(name,event.target.files[0])
+        // formData.append(name,event.target.files[0])
         setSelectedFile(event.target.files[0]);
         setFileUrl(URL.createObjectURL(event.target.files[0]));
-        AddDataField(name,event.target.files[0])
         // console.log(event.target.files[0]);
     };
     return (
-        <div className="fileUploaderField">
-            <input className="chooseFileInput" name={name} type="file" onChange={onFileChange} required/>
+        <div className="fileUploaderField" >
+            <input className="chooseFileInput"  name={name} type="file" onChange={onFileChange} required/>
             {
                 selectedFile
                 &&

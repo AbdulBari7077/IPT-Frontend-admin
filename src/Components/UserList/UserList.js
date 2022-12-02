@@ -3,30 +3,49 @@ import React, { useEffect, useState } from 'react';
 import './UserList.css';
 import { DataGrid } from '@mui/x-data-grid';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import { getAllUsers } from '../../api/api';
+import { DeleteUser, getAllUsers } from '../../api/api';
 import image from "../../../src/assets/avatar.jpg"
 import { useNavigate } from 'react-router-dom';
+import CircularIndeterminate from '../Spinner/Spinner';
 
 const UserList = () => {
-  const [state, setState] = useState({});
+  const [state, setState] = useState([]);
+  async function handleDelete(id) {
+    const response = await DeleteUser(id);
+    console.log(response.data.code, "RESPONSE USER DELETE on 200");
+    if (response.data.code === 200) {
+      console.log("USER  DELETED");
+      window.location.reload(false);
+      return;
+    }
+    return;
+  }
+
   useEffect(() => {
     async function fetchData() {
       const response = await getAllUsers();
-      console.log(response, "RESPONSE")
+      console.log(response, "GET ALL USERS RESPONSE")
       let userList = [];
       if (!response.data?.code) {
-        response.data.map((user) => {
-          const userRow = {
-            id: user.UserId,
-            avatar: image,
-            username: user.Name,
-            email: user.Email,
-            Subscription: user.Subscription,
-            transaction: `$${(Math.floor(Math.random() * 90 + 10))}`
-          }
-          return userList.push(userRow);
-        })
-        setState(userList);
+        if(response.data.length >0)
+        {
+          response.data.map((user) => {
+            const userRow = {
+              id: user.UserId,
+              avatar: image,
+              username: user.Name,
+              email: user.Email,
+              Subscription: user.Subscription,
+              transaction: `$${(Math.floor(Math.random() * 90 + 10))}`
+            }
+            return userList.push(userRow);
+          })
+          setState(userList);
+        }
+        else
+        {
+          return
+        }
       }
     }
     fetchData();
@@ -69,13 +88,12 @@ const UserList = () => {
       field: 'action',
       headerName: 'Action',
       renderCell: (cellValues) =>
-        <>
+        <button className="btn" onClick={() => handleDelete(cellValues.row.id)}>
           <DeleteOutlineIcon className="user__delete" />
-        </>,
+        </button>,
       width: 120,
     }
   ];
-
   return (
     <div className="user__list">
       <DataGrid rows={state} disableSelectionOnClick columns={columns} pageSize={9} rowsPerPageOptions={[9]} />

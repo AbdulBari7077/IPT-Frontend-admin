@@ -29,7 +29,7 @@
 }
 
 .new__user__item > input {
-    height: 50px;
+    height: 22px;
     padding:10px;
     border: 1px solid gray;
     border-radius: 5px;
@@ -71,10 +71,10 @@
     align-items: center;
 }
 .textareaform{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border-radius: 5px;
+    font-size: 16px;
+    padding-left: 10px;
+    padding-top: 5px;
 }
 .form-control{
     border: 1px solid rgb(168, 168, 168);
