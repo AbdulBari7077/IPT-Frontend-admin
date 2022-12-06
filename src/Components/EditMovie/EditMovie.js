@@ -28,7 +28,7 @@ const EditMovie = ({ id }) => {
                 movieRating: data.Movie.movieRating,
                 imdb: data.Movie.imdb,
                 description: data.Movie.description,
-                genres: data.Movie.genres,
+                genres: data.Movie.genres.join(', '),
                 year: data.Movie.year,
                 duration: data.Movie.duration,
                 rating : data.Movie.rating

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://128.199.68.100"
+const BASE_URL = "https://localhost:44318"
 
 export const LoginApi = async (userEmail, password) => {
     try {
@@ -78,6 +78,7 @@ export const getMovie = async (id) => {
 }
 export const DeleteMovie = async (id) => {
     try {
+        console.log("ID",id)
         const userToken = JSON.parse(localStorage.getItem('userData'))['token'];
         const response = await axios.delete(`${BASE_URL}/Movie/Delete/${id}`, {
             headers: {

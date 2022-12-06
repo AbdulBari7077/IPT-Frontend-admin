@@ -12,9 +12,9 @@ const UserList = () => {
   const [state, setState] = useState([]);
   async function handleDelete(id) {
     const response = await DeleteUser(id);
-    console.log(response.data.code, "RESPONSE USER DELETE on 200");
-    if (response.data.code === 200) {
-      console.log("USER  DELETED");
+    console.log(response, "RESPONSE USER DELETE");
+    if (response?.data.code === 200) {
+      console.log("USER DELETED");
       window.location.reload(false);
       return;
     }
