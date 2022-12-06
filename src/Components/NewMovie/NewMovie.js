@@ -56,8 +56,7 @@ const NewMovie = ({ parent, id }) => {
         else {
             formData.append("Genre[]", Genre.value);
         }
-        formData.append("MovieTitle", MovieTitle.value);
-
+        formData.append("Title", MovieTitle?.value);
         formData.append("Imdb", Imdb.value);
         formData.append("Description", Description.value);
         formData.append("AgeRating", AgeRating.value);
@@ -88,7 +87,9 @@ const NewMovie = ({ parent, id }) => {
             }
         }
         else{
-            return alert(response?.data?.msg);
+            alert(response?.data?.msg);
+            window.location.reload();
+            return
         }
         // setData({ ...data, MovieTitle: MovieTitle.value, Genre: Genrelist, Imdb: Imdb.value, Description: Description.value, AgeRating: AgeRating.value,Year: releaseYear, Duration: duration  });
         // console.log("hello")

@@ -6,13 +6,13 @@ const FileUploader = ({type,name, AddDataField, setData,data}) => {
     const [fileUrl, setFileUrl] = useState();
     function onFileChange(event) {
         // console.log(event.target.files[0])
-        if(type ==='image' && ( (event.target.files[0].name).split('.')[1] !=='png' && ((event.target.files[0].name).split('.')[1] !=='jpg') && ((event.target.files[0].name).split('.')[1] !=='jpeg')))
+        if(type ==='image' && ( (event.target.files[0].name).split('.')[1].toLowerCase() !=='png' && ((event.target.files[0].name).split('.')[1].toLowerCase() !=='jpg') && ((event.target.files[0].name).split('.')[1].toLowerCase() !=='jpeg')))
         {
             alert('.png or .jpeg or jpg file required');
             setSelectedFile();
             return;
         }
-        if( type ==='video' && ((event.target.files[0].name).split('.')[1] !=='mp4') )
+        if( type ==='video' && ((event.target.files[0].name).split('.')[1].toLowerCase() !=='mp4') )
         {
             alert('.mp4 file required');
             setSelectedFile();
