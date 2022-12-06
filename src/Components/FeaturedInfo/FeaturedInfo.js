@@ -9,7 +9,7 @@ const FeaturedInfo = () => {
     useEffect(() => {
         async function fetchData() {
             const response = await adminHomePageApi();
-            if (response.data.revenue) {
+            if (response?.data.revenue) {
                 setState(response);
             }
         }

@@ -77,9 +77,9 @@ const NewMovie = ({ parent, id }) => {
         // const formDataAPI={ ...data, MovieTitle: MovieTitle.value, Genre: Genrelist, Imdb: Imdb.value, Description: Description.value, AgeRating: AgeRating.value,Year: releaseYear, Duration: duration  }
         // console.log(formDataAPI,"---------------------");
         let response = (!parent) ? await AddMovie(formData) : await EditMovie(formData, id);
-        if (response.data.status) {
+        if (response?.data?.status) {
             setLoading(false)
-            console.log(response, "RESPONSE");
+            // console.log(response,"RESPONSE");
             if (parent) {
                 return navigate(`/admin/editMovie/${id}`)
             }
@@ -88,10 +88,10 @@ const NewMovie = ({ parent, id }) => {
             }
         }
         else{
-            alert(response.data.msg)
+            return alert(response?.data?.msg);
         }
         // setData({ ...data, MovieTitle: MovieTitle.value, Genre: Genrelist, Imdb: Imdb.value, Description: Description.value, AgeRating: AgeRating.value,Year: releaseYear, Duration: duration  });
-        console.log("hello")
+        // console.log("hello")
     }
     function handleDate(dateyear) {
         setReleaseYear((new Date(dateyear)).getFullYear())

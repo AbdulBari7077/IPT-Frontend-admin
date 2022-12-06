@@ -28,7 +28,7 @@ const MovieList = () => {
           console.log(response, "RESPONSE")
           let movieList = [];
           if (response.data.status) {
-            response.data.data.Movies.map((movie) => {
+            response?.data.data.Movies.map((movie) => {
               const movieRow = {
                 id: movie.movieId,
                 title: movie.title,
@@ -97,7 +97,7 @@ const MovieList = () => {
 
     return (
         <div className="movie__list">
-            <DataGrid rows={state} disableSelectionOnClick columns={columns} pageSize={5} rowsPerPageOptions={[5]} />
+            <DataGrid rows={state} disableSelectionOnClick columns={columns} pageSize={10} rowsPerPageOptions={[10]} />
         </div>
     )
 }

@@ -114,7 +114,7 @@ export const AddMovie = async (formData) => {
         const userToken = JSON.parse(localStorage.getItem('userData'))['token'];
         var config = {
             method: "post",
-            url: " https://localhost:44318/Movie/AddMovie",
+            url: "https://localhost:44318/Movie/AddMovie",
             headers: {
                 Accept: "application/json, text/plain, /",
                 "Content-Type": "multipart/form-data",
