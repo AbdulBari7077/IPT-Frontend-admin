@@ -78,7 +78,7 @@ const NewMovie = ({ parent, id }) => {
         let response = (!parent) ? await AddMovie(formData) : await EditMovie(formData, id);
         if (response?.data?.status) {
             setLoading(false)
-            // console.log(response,"RESPONSE");
+            console.log(response,"RESPONSE");
             if (parent) {
                 return navigate(`/admin/editMovie/${id}`)
             }
@@ -88,7 +88,7 @@ const NewMovie = ({ parent, id }) => {
         }
         else{
             alert(response?.data?.msg);
-            window.location.reload();
+            // window.location.reload();
             return
         }
         // setData({ ...data, MovieTitle: MovieTitle.value, Genre: Genrelist, Imdb: Imdb.value, Description: Description.value, AgeRating: AgeRating.value,Year: releaseYear, Duration: duration  });

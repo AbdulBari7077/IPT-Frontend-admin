@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://localhost:44318"
+const BASE_URL = "http://128.199.68.100"
 
 export const LoginApi = async (userEmail, password) => {
     try {
@@ -115,7 +115,7 @@ export const AddMovie = async (formData) => {
         const userToken = JSON.parse(localStorage.getItem('userData'))['token'];
         var config = {
             method: "post",
-            url: "https://localhost:44318/Movie/AddMovie",
+            url: `${BASE_URL}/Movie/AddMovie`,
             headers: {
                 Accept: "application/json, text/plain, /",
                 "Content-Type": "multipart/form-data",
@@ -137,7 +137,7 @@ export const EditMovie = async (formData,id) => {
         const userToken = JSON.parse(localStorage.getItem('userData'))['token'];
         var config = {
             method: "put",
-            url: `https://localhost:44318/Movie/edit/${id}`,
+            url: `${BASE_URL}/Movie/edit/${id}`,
             headers: {
                 Accept: "application/json, text/plain, /",
                 "Content-Type": "multipart/form-data",
